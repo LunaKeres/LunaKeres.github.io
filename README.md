@@ -1,2 +1,6 @@
 # INFT-1206-01
 Web Dev
+
+Brandon Cooke
+100880270
+INFT-1206-1
