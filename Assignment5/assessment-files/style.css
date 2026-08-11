@@ -16,7 +16,7 @@ body {
   margin: 0 auto;
 }
 
-/* Screen reader accessible helper */
+/* Visually hidden class for accessible screen-reader-only labels */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -41,23 +41,24 @@ p, input, li, table, label, button {
   color: #2a2a2a;
 }
 
-h1 {
+header h1 {
   font-size: 4rem;
   text-align: center;
   color: white;
   text-shadow: 2px 2px 10px black;
-  margin: 0;
+}
+
+article h1 {
+  font-size: 3rem;
+  text-align: center;
 }
 
 h2 {
-  font-size: 3rem;
-  text-align: center;
-  margin: 0;
+  font-size: 2.2rem;
 }
 
 h3 {
-  font-size: 2.2rem;
-  margin: 0;
+  font-size: 1.8rem;
 }
 
 p, li, table {
@@ -65,10 +66,19 @@ p, li, table {
   line-height: 1.5;
 }
 
+/* Color Contrast Fixes (WCAG AA compliant against dark backgrounds/light fonts) */
+a {
+  color: #0022cc;
+}
+
+a:visited {
+  color: #4b0082;
+}
+
 /* || header layout */
 
-.nav, article, footer, .secondary {
-  background-color: green;
+nav, article, footer, .secondary {
+  background-color: #ffffff;
 }
 
 article, footer, .secondary {
@@ -79,36 +89,37 @@ article {
   margin-right: 10px;
 }
 
-.nav {
+nav {
   height: 50px;
-  background-color: #ff80ff; /* Fixed missing # */
+  background-color: #f0f0f0;
   display: flex;
   padding: 1% 0;
   margin-bottom: 10px;
+  border-bottom: 2px solid #ccc;
 }
 
-.nav ul {
+nav ul {
   padding: 0;
   list-style-type: none;
   flex: 2;
   display: flex;
 }
 
-.nav li {
+nav li {
   display: inline;
   text-align: center;
   flex: 1;
 }
 
-.nav a {
+nav a {
   display: inline-block;
   font-size: 2rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: black;
+  color: #111111;
 }
 
-.nav .search {
+nav .search {
   flex: 1;
   display: flex;
   align-items: center;
@@ -128,9 +139,10 @@ article {
 .search input[type="submit"] {
   flex: 1;
   margin-left: 1rem;
-  background: #333;
+  background: #222222;
   border: 0;
   color: white;
+  cursor: pointer;
 }
 
 /* || main layout */
@@ -157,25 +169,33 @@ table {
   width: 100%;
   background-color: #dde;
   border-collapse: collapse;
+  margin: 1.5rem 0;
 }
 
 caption {
-  font-size: 1.4rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.6rem;
   font-weight: bold;
+  padding: 8px;
   text-align: left;
-  margin-bottom: 0.5rem;
 }
 
 th, td {
   padding: 10px;
+  border: 1px solid #999;
 }
 
 td {
   text-align: center;
 }
 
+th[scope="col"], th[scope="row"] {
+  background-color: #bbb;
+  font-weight: bold;
+}
+
 th[scope="col"] {
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
 
 tbody tr:nth-child(odd) {
@@ -193,9 +213,11 @@ audio {
   width: 500px;
 }
 
-details {
-  width: 500px;
-  margin: 1rem auto;
+.transcript {
+  margin: 1rem 0 2rem;
+  padding: 10px;
+  background: #f4f4f4;
+  border-left: 4px solid #666;
 }
 
 /* Comments styling */
@@ -207,14 +229,23 @@ details {
 
 .show-hide {
   cursor: pointer;
+  display: block;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  width: 150px;
+  background: #222;
+  border: 0;
+  color: white;
+  font-size: 1.6rem;
+  line-height: 32px;
+}
+
+.show-hide:focus {
+  outline: 3px solid #000;
 }
 
 .comments h2 {
   font-size: 2rem;
-}
-
-.comments h2:nth-of-type(2) {
-  margin-bottom: 0;
 }
 
 .comment-form {
@@ -235,29 +266,20 @@ details {
 .comment-form input {
   margin-left: 1rem;
   flex: 6;
-}
-
-.show-hide {
-  text-align: center;
-  width: 150px;
-  margin: 0 auto;
-}
-
-.comment-form input, .comment-form label, .show-hide {
   font-size: 1.6rem;
   line-height: 32px;
-}
-
-.comment-form input[type="submit"], .show-hide {
-  background: #333;
-  border: 0;
-  color: white;
 }
 
 .comment-form input[type="submit"] {
   width: 30%;
   display: block;
   margin: 0 auto;
+  background: #222;
+  border: 0;
+  color: white;
+  font-size: 1.6rem;
+  line-height: 32px;
+  cursor: pointer;
 }
 
 .comment-container {
