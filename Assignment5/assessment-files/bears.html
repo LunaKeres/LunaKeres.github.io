@@ -2,285 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+
     <title>Accessibility assessment</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
-    
-    <style>
-      /* || General setup */
-      html, body {
-        margin: 0;
-        padding: 0;
-      }
-
-      html {
-        font-size: 10px;
-        background-color: #dde;
-      }
-
-      body {
-        width: 80%;
-        min-width: 1024px;
-        margin: 0 auto;
-      }
-
-      /* Screen reader visually hidden helper */
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
-
-      /* || typography */
-      h1, h2, h3 {
-        font-family: 'Sonsie One', cursive;
-        color: #2a2a2a;
-        margin: 0;
-        font-weight: normal;
-      }
-
-      p, input, li, table, label, button {
-        font-family: 'Open Sans Condensed', sans-serif;
-        color: #2a2a2a;
-      }
-
-      header h1 {
-        font-size: 4rem;
-        text-align: center;
-        color: white;
-        text-shadow: 2px 2px 10px black;
-      }
-
-      article h2, .secondary h2, .comments h2 {
-        font-size: 3rem;
-        text-align: center;
-      }
-
-      article h3, aside h3 {
-        font-size: 2.2rem;
-      }
-
-      p, li, table {
-        font-size: 1.6rem;
-        line-height: 1.5;
-      }
-
-      /* || header layout */
-      nav, article, footer, .secondary {
-        background-color: green;
-      }
-
-      article, footer, .secondary {
-        padding: 10px 30px;
-      }
-
-      article {
-        margin-right: 10px;
-      }
-
-      nav {
-        height: 50px;
-        background-color: #ff80ff; /* Fixed invalid hex code ff80ff -> #ff80ff */
-        display: flex;
-        padding: 1% 0;
-        margin-bottom: 10px;
-      }
-
-      nav ul {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-        flex: 2;
-        display: flex;
-        align-items: center;
-      }
-
-      nav li {
-        display: inline;
-        text-align: center;
-        flex: 1;
-      }
-
-      nav a {
-        display: inline-block;
-        font-size: 2rem;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: black;
-      }
-
-      nav .search {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        padding: 0 2em;
-      }
-
-      .search input {
-        font-size: 1.6rem;
-        height: 32px;
-      }
-
-      .search input[type="search"] {
-        flex: 3;
-      }
-
-      .search input[type="submit"] {
-        flex: 1;
-        margin-left: 1rem;
-        background: #333;
-        border: 0;
-        color: white;
-      }
-
-      /* || main layout */
-      main {
-        display: flex;
-      }
-
-      article {
-        flex: 5;
-      }
-
-      .secondary {
-        flex: 2;
-      }
-
-      footer {
-        margin-top: 10px;
-      }
-
-      /* Table styling */
-      table {
-        width: 100%;
-        background-color: #dde;
-        border-collapse: collapse;
-      }
-
-      caption {
-        font-size: 1.4rem;
-        font-weight: bold;
-        text-align: left;
-        margin-bottom: 0.5rem;
-      }
-
-      th, td {
-        padding: 10px;
-      }
-
-      td {
-        text-align: center;
-      }
-
-      th[scope="col"] {
-        border-bottom: 1px solid black;
-      }
-
-      tbody tr:nth-child(odd) {
-        background-color: #def;
-      }
-
-      /* styling content images and audio */
-      img, audio {
-        display: block;
-        margin: 0 auto;
-      }
-
-      audio {
-        width: 500px;
-      }
-
-      details {
-        width: 500px;
-        margin: 1rem auto;
-      }
-
-      /* Comments styling */
-      .comments {
-        background-color: #def;
-        padding: 10px;
-      }
-
-      .show-hide {
-        cursor: pointer;
-      }
-
-      .comments h2 {
-        font-size: 2rem;
-      }
-
-      .comments h2:nth-of-type(2) {
-        margin-bottom: 0;
-      }
-
-      .comment-form {
-        margin-bottom: 3rem;
-      }
-
-      .comment-form .flex-pair {
-        display: flex;
-        padding: 0 3rem 1rem;
-      }
-
-      .comment-form label {
-        align-self: center;
-        flex: 2;
-        text-align: right;
-      }
-
-      .comment-form input {
-        margin-left: 1rem;
-        flex: 6;
-      }
-
-      .show-hide {
-        text-align: center;
-        width: 150px;
-        margin: 0 auto;
-        display: block;
-      }
-
-      .comment-form input, .comment-form label, .show-hide {
-        font-size: 1.6rem;
-        line-height: 32px;
-      }
-
-      .comment-form input[type="submit"], .show-hide {
-        background: #333;
-        border: 0;
-        color: white;
-      }
-
-      .comment-form input[type="submit"] {
-        width: 30%;
-        display: block;
-        margin: 0 auto;
-      }
-
-      .comment-container {
-        margin-top: 0;
-      }
-
-      .comment-container li {
-        list-style-type: none;
-        display: flex;
-      }
-
-      .comment-container li p:nth-child(1) {
-        flex: 1;
-        font-weight: bold;
-      }
-
-      .comment-container li p:nth-child(2) {
-        flex: 5;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
 
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -302,29 +27,29 @@
 
       <form class="search">
         <label for="search-input" class="visually-hidden">Search query</label>
-        <input type="search" name="q" id="search-input" placeholder="Search query">
+        <input type="search" id="search-input" name="q" placeholder="Search query">
         <input type="submit" value="Go!">
       </form>
     </nav>
 
     <main>
       <article>
-        <h2>The trouble with Bears</h2>
+        <h1>The trouble with Bears</h1>
         
         <p>By Evan Wild</p>
-
+        
         <p>Tall, lumbering, angry, dangerous. The real live bears of this world are proud, independent creatures, self-serving and always on the hunt for food. Nothing like the bears you see on TV, like Baloo from renowned documentary, The Jungle Book.</p>
-
+        
         <p>So what are bears really like, and why does the world's media portray them with such a skewed vision? In this article we try to answer those questions, and give you a real insight into the life of the bear.</p>
-
-        <h3>Types of bear</h3>
-
+        
+        <h2>Types of bear</h2>
+        
         <p>Bears come in two varieties — large and medium. You don't get small bears. If you have seen a small bear, then it was in fact probably a baby bear (cub) from another species.</p>
-
+        
         <p>Bears can also be classified in terms of their habitat — both large and medium bears are just as at home in urban areas as they are in the countryside. Different habitats encourange different behaviour however, as you'll find out below. The below table also gives you some useful facts about bears.</p>
-
+        
         <table>
-          <caption>Comparison of wild and urban bear characteristics, habitat, and lifespan</caption>
+          <caption>Types of bears, their characteristics, habitats, lifespan, and diet</caption>
           <thead>
             <tr>
               <th scope="col">Bear Type</th>
@@ -355,43 +80,43 @@
           </tbody>
         </table>
 
-        <h3>Habitats and Eating habits</h3>
-
+        <h2>Habitats and Eating habits</h2>
+        
         <p>Wild bears eat a variety of meat, fish, fruit, nuts, and other natually growing ingredients. In general they will hunt for food themselves in woodland or rivers, but at a push they will track down their sustenance from farms or country houses. They tend to live in relative isolation, in caves, tents, or cottages.</p>
-
-        <img src="media/wild-bear.jpg" alt="A large wild brown bear standing in a forest environment.">
-
+        
+        <img src="media/wild-bear.jpg" alt="A wild brown bear standing in a forest environment">
+        
         <p>Urban (gentrified) bears on the other hand have largely abandoned the old ways. They will hunt other urban creatures if necessary (including other predators like rats and foxes), but prefer to scavenge from readily available urban food outlets like dumpsters, bins, and fast food joints. When food has proven scarce, urban bears have even been known to break into people's kitchens and steal essentials like baked beans, ready meals, and microwave ovens.</p>
-
-        <img src="media/urban-bear.jpg" alt="An urban bear scavenges near trash bins in a city alley.">
-
+        
+        <img src="media/urban-bear.jpg" alt="An urban bear sitting near city buildings and trash bins">
+        
         <p>Urban bears will sleep anywhere they can, from bus shelters and parks, to the toilets in McDonalds, to their own apartment.</p>
-
-        <h3>Mating rituals</h3>
-
+        
+        <h2>Mating rituals</h2>
+        
         <p>Bears are romantic creatures by nature, and will naturally look for a mate that they can spend the rest of their lives with. They will woo a potential suitor by making their dwelling look attractive — for example with cave paintings or a bed of reeds in the case of a wild bear, and mood lighting and a Michael Bublé CD in the case of an urban bear.</p>
-
+        
         <p>The following audio clip contains a fact file providing more details about bear mating rituals, along with samples and quotes from experts.</p>
-
+        
         <audio controls>
           <source src="media/bear.mp3" type="audio/mp3">
           <source src="media/bear.ogg" type="audio/ogg">
-          <p>It looks like your browser doesn't support HTML5 audio players. You can <a href="media/bear.mp3">download the audio file (MP3)</a> instead.</p>
+          <p>It looks like your browser doesn't support HTML5 audio players. You can <a href="media/bear.mp3">download the bear audio file directly</a>.</p>
         </audio>
 
-        <details>
-          <summary>Audio Transcript</summary>
-          <p>This audio clip discusses bear mating rituals, explaining how wild bears decorate caves and urban bears use mood lighting and music to attract suitors.</p>
-        </details>
+        <section class="transcript">
+          <h3>Transcript of Bear Audio Clip</h3>
+          <p>This audio clip discusses bear mating rituals, detailing how both wild and urban bears attract prospective mates through environmental alterations and courtship displays.</p>
+        </section>
 
         <aside>
-          <h3>About the author</h3>
+          <h2>About the author</h2>
           <p>Evan Wild is an unemployed plumber from Doncaster, who has been really "in to" wildlife since childhood. He once went to Chester Zoo on holiday, but got ill after eating a doner kebab.</p>
           <p>He has never seen a bear, but once read a Daily Mail article about them, and thinks they sound cool.</p>
         </aside>
 
         <section class="comments">
-          <button class="show-hide" type="button">Show comments</button>
+          <button type="button" class="show-hide">Show comments</button>
 
           <div class="comment-wrapper">
             <h2>Add comment</h2>
@@ -418,14 +143,12 @@
                 <p>Oh I am so glad you taught me all about the big brown angry guys in the woods. With their sniffing little noses and their bad attitudes, they can sure be a menace — I was thinking of putting them all in a truck and driving them outta here. I run a zoo, you know.</p>
               </li>
             </ul>
-
           </div>
         </section>
       </article>
 
       <div class="secondary">
         <h2>Related</h2>
-
         <ul>
           <li><a href="#">The trouble with Bees</a></li>
           <li><a href="#">The trouble with Otters</a></li>
@@ -441,6 +164,5 @@
     </footer>
 
     <script src="main.js"></script>
-
   </body>
 </html>
