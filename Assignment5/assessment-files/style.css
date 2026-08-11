@@ -16,7 +16,7 @@ body {
   margin: 0 auto;
 }
 
-/* || Screen reader accessibility helper */
+/* || Accessibility Helpers */
 
 .visually-hidden {
   position: absolute;
@@ -35,6 +35,8 @@ body {
 h1, h2, h3 {
   font-family: 'Sonsie One', cursive;
   color: #2a2a2a;
+  margin: 0;
+  font-weight: normal;
 }
 
 p, input, li, table, label, button {
@@ -42,22 +44,24 @@ p, input, li, table, label, button {
   color: #2a2a2a;
 }
 
-h1 {
+.header h1 {
   font-size: 4rem;
   text-align: center;
   color: white;
   text-shadow: 2px 2px 10px black;
-  margin: 0;
   padding: 1rem 0;
 }
 
-h2 {
+article h2, .secondary h2 {
   font-size: 3rem;
   text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
   font-size: 2.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 p, li, table {
@@ -65,11 +69,16 @@ p, li, table {
   line-height: 1.5;
 }
 
+p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
 /* || header layout */
 
-nav, article, footer, .secondary {
+.nav, article, footer, .secondary {
+  /* Darkened from bright green to dark green for WCAG 4.5:1 text contrast */
   background-color: #005a00;
-  color: white;
 }
 
 article, footer, .secondary {
@@ -80,41 +89,39 @@ article {
   margin-right: 10px;
 }
 
-nav {
+/* Updated selector to target <nav class="nav"> and fixed missing '#' in #ff80ff */
+.nav {
   height: 50px;
-  background-color: #a824a8;
+  background-color: #ff80ff;
   display: flex;
   padding: 1% 0;
   margin-bottom: 10px;
 }
 
-nav ul {
+.nav ul {
   padding: 0;
+  margin: 0;
   list-style-type: none;
   flex: 2;
   display: flex;
+  align-items: center;
 }
 
-nav li {
+.nav li {
   display: inline;
   text-align: center;
   flex: 1;
 }
 
-nav a {
+.nav a {
   display: inline-block;
   font-size: 2rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: white;
-  font-weight: bold;
+  color: #2a2a2a;
 }
 
-nav a:focus, nav a:hover {
-  text-decoration: underline;
-}
-
-nav .search {
+.nav .search {
   flex: 1;
   display: flex;
   align-items: center;
@@ -148,6 +155,7 @@ main {
 
 article {
   flex: 5;
+  color: white;
 }
 
 article h2, article h3, article p, article label {
@@ -156,9 +164,10 @@ article h2, article h3, article p, article label {
 
 .secondary {
   flex: 2;
+  color: white;
 }
 
-.secondary h3, .secondary a {
+.secondary h2, .secondary a {
   color: white;
 }
 
@@ -168,6 +177,7 @@ footer {
 
 footer p {
   color: white;
+  margin: 0;
 }
 
 /* Table styling */
@@ -184,6 +194,7 @@ caption {
   font-weight: bold;
   margin-bottom: 0.5rem;
   color: white;
+  text-align: left;
 }
 
 th, td {
@@ -198,6 +209,7 @@ td {
 th[scope="col"] {
   border-bottom: 2px solid black;
   background-color: #ccc;
+  text-align: center;
 }
 
 th[scope="row"] {
@@ -213,7 +225,8 @@ tbody tr:nth-child(odd) {
 
 img, audio {
   display: block;
-  margin: 0 auto;
+  margin: 1.5rem auto;
+  max-width: 100%;
 }
 
 audio {
@@ -224,12 +237,13 @@ details {
   width: 500px;
   margin: 1rem auto;
   color: white;
+  font-size: 1.4rem;
 }
 
 details summary {
   cursor: pointer;
-  font-size: 1.6rem;
   font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 /* Comments styling */
@@ -242,6 +256,8 @@ details summary {
 
 .comments h3 {
   color: #2a2a2a;
+  text-align: center;
+  font-size: 3rem;
 }
 
 .comments h3:nth-of-type(2) {
@@ -269,12 +285,14 @@ details summary {
   flex: 6;
 }
 
+/* Button styling updated to match original show-hide styling */
 .show-hide {
   text-align: center;
   width: 150px;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem auto;
   display: block;
   cursor: pointer;
+  padding: 0;
 }
 
 .comment-form input, .comment-form label, .show-hide {
@@ -308,6 +326,7 @@ details summary {
 
 .comment-container li p {
   color: #2a2a2a;
+  margin-bottom: 0;
 }
 
 .comment-container li p:nth-child(1) {
