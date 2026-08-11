@@ -16,8 +16,7 @@ body {
   margin: 0 auto;
 }
 
-/* || Accessibility Helpers */
-
+/* Screen reader accessible helper */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -35,8 +34,6 @@ body {
 h1, h2, h3 {
   font-family: 'Sonsie One', cursive;
   color: #2a2a2a;
-  margin: 0;
-  font-weight: normal;
 }
 
 p, input, li, table, label, button {
@@ -44,24 +41,23 @@ p, input, li, table, label, button {
   color: #2a2a2a;
 }
 
-.header h1 {
+h1 {
   font-size: 4rem;
   text-align: center;
   color: white;
   text-shadow: 2px 2px 10px black;
-  padding: 1rem 0;
+  margin: 0;
 }
 
-article h2, .secondary h2 {
+h2 {
   font-size: 3rem;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin: 0;
 }
 
 h3 {
   font-size: 2.2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 p, li, table {
@@ -69,16 +65,10 @@ p, li, table {
   line-height: 1.5;
 }
 
-p {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-}
-
 /* || header layout */
 
 .nav, article, footer, .secondary {
-  /* Darkened from bright green to dark green for WCAG 4.5:1 text contrast */
-  background-color: #005a00;
+  background-color: green;
 }
 
 article, footer, .secondary {
@@ -89,10 +79,9 @@ article {
   margin-right: 10px;
 }
 
-/* Updated selector to target <nav class="nav"> and fixed missing '#' in #ff80ff */
 .nav {
   height: 50px;
-  background-color: #ff80ff;
+  background-color: #ff80ff; /* Fixed missing # */
   display: flex;
   padding: 1% 0;
   margin-bottom: 10px;
@@ -100,11 +89,9 @@ article {
 
 .nav ul {
   padding: 0;
-  margin: 0;
   list-style-type: none;
   flex: 2;
   display: flex;
-  align-items: center;
 }
 
 .nav li {
@@ -118,7 +105,7 @@ article {
   font-size: 2rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: #2a2a2a;
+  color: black;
 }
 
 .nav .search {
@@ -144,7 +131,6 @@ article {
   background: #333;
   border: 0;
   color: white;
-  cursor: pointer;
 }
 
 /* || main layout */
@@ -155,29 +141,14 @@ main {
 
 article {
   flex: 5;
-  color: white;
-}
-
-article h2, article h3, article p, article label {
-  color: white;
 }
 
 .secondary {
   flex: 2;
-  color: white;
-}
-
-.secondary h2, .secondary a {
-  color: white;
 }
 
 footer {
   margin-top: 10px;
-}
-
-footer p {
-  color: white;
-  margin: 0;
 }
 
 /* Table styling */
@@ -186,20 +157,17 @@ table {
   width: 100%;
   background-color: #dde;
   border-collapse: collapse;
-  margin: 1.5rem 0;
 }
 
 caption {
   font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: white;
   text-align: left;
+  margin-bottom: 0.5rem;
 }
 
 th, td {
   padding: 10px;
-  color: #2a2a2a;
 }
 
 td {
@@ -207,14 +175,7 @@ td {
 }
 
 th[scope="col"] {
-  border-bottom: 2px solid black;
-  background-color: #ccc;
-  text-align: center;
-}
-
-th[scope="row"] {
-  text-align: left;
-  background-color: #e6e6e6;
+  border-bottom: 1px solid black;
 }
 
 tbody tr:nth-child(odd) {
@@ -225,8 +186,7 @@ tbody tr:nth-child(odd) {
 
 img, audio {
   display: block;
-  margin: 1.5rem auto;
-  max-width: 100%;
+  margin: 0 auto;
 }
 
 audio {
@@ -236,14 +196,6 @@ audio {
 details {
   width: 500px;
   margin: 1rem auto;
-  color: white;
-  font-size: 1.4rem;
-}
-
-details summary {
-  cursor: pointer;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
 }
 
 /* Comments styling */
@@ -251,16 +203,17 @@ details summary {
 .comments {
   background-color: #def;
   padding: 10px;
-  margin-top: 2rem;
 }
 
-.comments h3 {
-  color: #2a2a2a;
-  text-align: center;
-  font-size: 3rem;
+.show-hide {
+  cursor: pointer;
 }
 
-.comments h3:nth-of-type(2) {
+.comments h2 {
+  font-size: 2rem;
+}
+
+.comments h2:nth-of-type(2) {
   margin-bottom: 0;
 }
 
@@ -277,7 +230,6 @@ details summary {
   align-self: center;
   flex: 2;
   text-align: right;
-  color: #2a2a2a;
 }
 
 .comment-form input {
@@ -285,14 +237,10 @@ details summary {
   flex: 6;
 }
 
-/* Button styling updated to match original show-hide styling */
 .show-hide {
   text-align: center;
   width: 150px;
-  margin: 0 auto 1.5rem auto;
-  display: block;
-  cursor: pointer;
-  padding: 0;
+  margin: 0 auto;
 }
 
 .comment-form input, .comment-form label, .show-hide {
@@ -310,23 +258,15 @@ details summary {
   width: 30%;
   display: block;
   margin: 0 auto;
-  cursor: pointer;
 }
 
 .comment-container {
   margin-top: 0;
-  padding-left: 0;
 }
 
 .comment-container li {
   list-style-type: none;
   display: flex;
-  color: #2a2a2a;
-}
-
-.comment-container li p {
-  color: #2a2a2a;
-  margin-bottom: 0;
 }
 
 .comment-container li p:nth-child(1) {
