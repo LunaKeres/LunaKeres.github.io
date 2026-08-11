@@ -7,7 +7,7 @@ html, body {
 
 html {
   font-size: 10px;
-  background-color: #dde;
+  background-color: #eef2f5;
 }
 
 body {
@@ -16,31 +16,32 @@ body {
   margin: 0 auto;
 }
 
-/* || typography */
+/* || Typography */
 
-font[size="7"], font[size="6"], font[size="5"] {
+h1, h2, h3 {
   font-family: 'Sonsie One', cursive;
-  color: #2a2a2a;
+  color: #111111;
+  margin-top: 0;
 }
 
-p, input, li, table, label {
+p, input, li, table, label, button {
   font-family: 'Open Sans Condensed', sans-serif;
-  color: #2a2a2a;
+  color: #111111;
 }
 
-font[size="7"] {
+h1 {
   font-size: 4rem;
   text-align: center;
-  color: white;
-  text-shadow: 2px 2px 10px black;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px #000000;
 }
 
-font[size="6"] {
+h2 {
   font-size: 3rem;
   text-align: center;
 }
 
-font[size="5"] {
+h3 {
   font-size: 2.2rem;
 }
 
@@ -49,10 +50,36 @@ p, li, table {
   line-height: 1.5;
 }
 
-/* || header layout */
+/* || Focus States for Accessibility */
 
-div[class="nav"], article, footer, .secondary {
-  background-color: green;
+a:focus,
+button:focus,
+input:focus,
+.show-hide:focus {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
+
+/* Screen reader only utility class */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; 
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* || Header Layout */
+
+/* Updated dark green for high contrast text against white */
+nav, article, footer, .secondary {
+  background-color: #1f4e23;
+  color: #ffffff;
+}
+
+nav a, article, footer, .secondary p, .secondary h2, .secondary h3, article p, article h2, article h3 {
+  color: #ffffff;
 }
 
 article, footer, .secondary {
@@ -63,36 +90,45 @@ article {
   margin-right: 10px;
 }
 
-div[class="nav"] {
-  height: 50px;
-  background-color: ff80ff;
+nav {
+  min-height: 50px;
+  background-color: #2b2b2b; /* Replaced broken/invalid color with dark contrast bar */
   display: flex;
   padding: 1% 0;
   margin-bottom: 10px;
 }
 
-div[class="nav"] ul {
+nav ul {
   padding: 0;
+  margin: 0;
   list-style-type: none;
   flex: 2;
   display: flex;
+  align-items: center;
 }
 
-div[class="nav"] li {
+nav li {
   display: inline;
   text-align: center;
   flex: 1;
 }
 
-div[class="nav"] a {
+nav a {
   display: inline-block;
   font-size: 2rem;
   text-transform: uppercase;
-  text-decoration: none;
-  color: black;
+  text-decoration: underline;
+  color: #ffffff;
+  padding: 5px;
 }
 
-div[class="nav"] .search {
+nav a:hover,
+nav a:focus {
+  color: #ffbf47;
+  text-decoration: none;
+}
+
+nav .search {
   flex: 1;
   display: flex;
   align-items: center;
@@ -107,17 +143,29 @@ div[class="nav"] .search {
 
 .search input[type="search"] {
   flex: 3;
+  padding: 0 5px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .search input[type="submit"] {
   flex: 1;
   margin-left: 1rem;
-  background: #333;
-  border: 0;
-  color: white;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* || main layout */
+.search input[type="submit"]:hover,
+.search input[type="submit"]:focus {
+  background: #ffbf47;
+  border-color: #ffbf47;
+}
+
+/* || Main Layout */
 
 main {
   display: flex;
@@ -133,60 +181,73 @@ article {
 
 footer {
   margin-top: 10px;
+  text-align: center;
 }
 
-/* Table styling */
+/* Table Styling */
 
 table {
   width: 100%;
-  background-color: #dde;
+  background-color: #ffffff;
   border-collapse: collapse;
+  color: #000000;
+  margin: 15px 0;
+}
+
+caption {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 8px;
+  color: #ffffff;
 }
 
 th, td {
   padding: 10px;
+  border: 1px solid #333333;
 }
 
 td {
   text-align: center;
+  color: #000000;
 }
 
-th[scope="col"] {
-  border-bottom: 1px solid black;
+th {
+  background-color: #2b2b2b;
+  color: #ffffff;
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #def;
+  background-color: #f2f2f2;
 }
 
-/* styling content images and audio */
+/* Styling Content Images and Audio */
 
 img, audio {
   display: block;
-  margin: 0 auto;
+  margin: 15px auto;
+  max-width: 100%;
 }
 
 audio {
   width: 500px;
 }
 
-/* Comments styling */
+/* Comments Styling */
 
 .comments {
-  background-color: #def;
-  padding: 10px;
+  background-color: #ffffff;
+  color: #111111;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 4px;
 }
 
-.show-hide {
-  cursor: pointer;
+.comments h2, .comments p, .comments label {
+  color: #111111;
 }
 
-.comments font[size="6"] {
-  font-size: 2rem;
-}
-
-.comments font[size="6"]:nth-of-type(2) {
-  margin-bottom: 0;
+.comments h2 {
+  font-size: 2.2rem;
 }
 
 .comment-form {
@@ -202,16 +263,32 @@ audio {
   align-self: center;
   flex: 2;
   text-align: right;
+  font-weight: bold;
 }
 
 .comment-form input {
   margin-left: 1rem;
   flex: 6;
+  padding: 5px;
+  border: 1px solid #333333;
 }
 
+/* Accessible Button Styling for Show/Hide Comments */
 .show-hide {
+  cursor: pointer;
   text-align: center;
-  width: 150px;
+  width: 180px;
+  margin: 10px auto;
+  display: block;
+  background: #2b2b2b;
+  border: 2px solid #000000;
+  color: #ffffff;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+.show-hide:hover {
+  background: #444444;
 }
 
 .comment-form input, .comment-form label, .show-hide {
@@ -219,25 +296,36 @@ audio {
   line-height: 32px;
 }
 
-.comment-form input[type="submit"], .show-hide {
-  background: #333;
-  border: 0;
-  color: white;
-}
-
 .comment-form input[type="submit"] {
+  background: #2b2b2b;
+  border: 0;
+  color: #ffffff;
   width: 30%;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.comment-form input[type="submit"]:hover {
+  background: #444444;
 }
 
 .comment-container {
-  margin-top: 0;
+  margin-top: 10px;
+  padding-left: 0;
 }
 
 .comment-container li {
   list-style-type: none;
   display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.comment-container li p {
+  color: #111111;
+  margin: 0;
 }
 
 .comment-container li p:nth-child(1) {
